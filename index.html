@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <div id="buttons">
+        <button id='blackColor'>黑色</button>
+        <button id='redColor'>红色</button>
+        <button id='eraser'>橡皮</button>
+    </div>
     <canvas id="canvas" width="100" height="100"></canvas>
     <script>
         let canvas = document.getElementById("canvas");
@@ -19,7 +24,7 @@
         let ctx = canvas.getContext("2d");
         let painting = false
         let last
-        ctx.fillStyle = "black";
+        ctx.strokeStyle = "black";
         ctx.lineWidth = 10;
         ctx.lineCap = "round"
 
@@ -57,6 +62,18 @@
             canvas.onmouseup = () => {
                 painting = false
             }
+        }
+        blackColor.onclick = () => {
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 10;
+        }
+        redColor.onclick = () => {
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 10;
+        }
+        eraser.onclick = () => {
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = 30;
         }
     </script>
 </body>
