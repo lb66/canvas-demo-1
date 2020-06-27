@@ -4,9 +4,6 @@
    box-sizing: border-box;
 }
 
-body {
-   overscroll-behavior: none;
-}
 
 .icon {
    width: 2em;
