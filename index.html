@@ -8,74 +8,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>画板</title>
     <link rel="stylesheet" href="style.css">
+    <script src="//at.alicdn.com/t/font_1907453_l521lc1byf.js"></script>
 </head>
 
 <body>
-    <div id="buttons">
-        <button id='blackColor'>黑色</button>
-        <button id='redColor'>红色</button>
-        <button id='eraser'>橡皮</button>
-    </div>
-    <canvas id="canvas" width="100" height="100"></canvas>
-    <script>
-        let canvas = document.getElementById("canvas");
-        canvas.height = document.documentElement.clientHeight
-        canvas.width = document.documentElement.clientWidth
-        let ctx = canvas.getContext("2d");
-        let painting = false
-        let last
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 10;
-        ctx.lineCap = "round"
+    <svg class="icon" aria-hidden="true" id="eraser">
+        <use xlink:href="#icon-eraser"></use>
+    </svg>
+    <ul class="lineWidth">
+        <li id="thin"></li>
+        <li id="thick"></li>
+    </ul>
+    <ul class="colorPicker">
+        <li id="black" class="active"></li>
+        <li id="red"></li>
+        <li id="blue"></li>
+    </ul>
 
-        function drawLine(x1, y1, x2, y2) {
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.stroke();
-        }
+    <canvas id="canvas" width="100" height="100">
 
-        var isTouchDevice = 'ontouchstart' in document.documentElement;
-        if (isTouchDevice) {
-            canvas.ontouchstart = (e) => {
-                let x = e.touches[0].clientX
-                let y = e.touches[0].clientY
-                last = [x, y]
-            }
-            canvas.ontouchmove = (e) => {
-                let x = e.touches[0].clientX
-                let y = e.touches[0].clientY
-                drawLine(last[0], last[1], x, y)
-                last = [x, y]
-            }
-        } else {
-            canvas.onmousedown = (e) => {
-                painting = true
-                last = [e.clientX, e.clientY]
-            }
-            canvas.onmousemove = (e) => {
-                if (painting === true) {
-                    drawLine(last[0], last[1], e.clientX, e.clientY)
-                    last = [e.clientX, e.clientY]
-                }
-            }
-            canvas.onmouseup = () => {
-                painting = false
-            }
-        }
-        blackColor.onclick = () => {
-            ctx.strokeStyle = "black";
-            ctx.lineWidth = 10;
-        }
-        redColor.onclick = () => {
-            ctx.strokeStyle = "red";
-            ctx.lineWidth = 10;
-        }
-        eraser.onclick = () => {
-            ctx.strokeStyle = "white";
-            ctx.lineWidth = 30;
-        }
-    </script>
+    </canvas>
+    <script src="main.js"></script>
 </body>
 
 </html>

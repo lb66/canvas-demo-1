@@ -1,18 +1,98 @@
-*{margin: 0;
-padding: 0;
-box-sizing: border-box;}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.icon {
+   width: 2em;
+   height: 2em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+
+svg:active {
+   fill: green;
+   transform: scale(1.3);
+
+}
+
 #canvas {
    display: block;
 }
-#buttons{
-   position: absolute;
-   right: 2vw;
-   top: 2vh;
-   display: flex;
-   flex-direction: column;
+
+ul,
+ol {
+   list-style: none;
 }
-#buttons>button {
-   margin-bottom: 10px;
-   font-size: 12px;
-   padding: 4px 8px;
- }
+
+#eraser {
+   position: fixed;
+   right: 15px;
+   bottom: 15px;
+
+}
+
+.lineWidth {
+   position: fixed;
+   top: 10px;
+   right: 0px;
+   padding: 10px;
+}
+
+.lineWidth li {
+   margin: 0 10px;
+   display: inline-block;
+   height: 50px;
+   background: #000;
+   transition: all 0.3s ease-in-out;
+}
+
+.lineWidth li:hover {
+   transform: scale(1.2)
+}
+
+.lineWidth #thin {
+   width: 5px;
+}
+
+.lineWidth #thick {
+   width: 15px;
+}
+
+.colorPicker {
+   position: fixed;
+   top: 100px;
+   right: 28px;
+}
+
+.colorPicker li {
+   height: 28px;
+   width: 28px;
+   margin: 16px 0;
+   border-radius: 50%;
+   transition: all 0.2s ease-in-out;
+}
+
+.colorPicker li:hover {
+   transform: scale(1.2);
+}
+
+.colorPicker li.active {
+   box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+   transform: scale(1.2);
+
+}
+
+#black {
+   background: black;
+}
+
+#red {
+   background: red;
+}
+
+#blue {
+   background: blue;
+}
