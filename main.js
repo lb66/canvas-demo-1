@@ -1,9 +1,3 @@
-window.onload = function () {
-  document.body.addEventListener("touchmove", function (event) {
-    event.preventDefault();
-  });
-};
-
 let canvas = document.getElementById("canvas");
 canvas.height = document.documentElement.clientHeight
 canvas.width = document.documentElement.clientWidth
