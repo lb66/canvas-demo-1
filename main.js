@@ -1,3 +1,7 @@
+document.querySelector('canvas').addEventListener('touchstart', function (e) {
+  e.preventDefault();
+}) //禁用下拉
+
 let canvas = document.getElementById("canvas");
 canvas.height = document.documentElement.clientHeight
 canvas.width = document.documentElement.clientWidth
